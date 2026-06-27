@@ -1,25 +1,29 @@
-# 🌿 SafeSpace: An AI Agent Built to Listen, Not Advise
-**Track:** Concierge Agents
+# 🛡️ SafeSpace Agent: Enterprise Multi-Agent System for Empathetic Validation
 
-## 📖 The Problem
-In a world full of AI assistants rushing to give advice, people experiencing overwhelming life pressures often just want to be heard. Unprompted advice can feel dismissive. SafeSpace solves this by being an AI built explicitly to listen, validate, and track emotional patterns without ever offering solutions.
+**Program Track:** Concierge Agents / Digital Health & Well-being  
+**Deployment Infrastructure:** Google Cloud Run (Stateless Containerization)  
+**Core Model Foundation:** Google Gemini (via Vertex AI Enterprise Ecosystem)
 
-## 🏗️ Architecture & Key Concepts Used
-This project implements a secure, Multi-Agent workflow using the following core course concepts:
+---
 
-1. **Security Features (Privacy Scrubbing):** User input passes through a security regex layer to redact sensitive data (like account numbers) before reaching the LLMs. 
-2. **Multi-Agent System (ADK):** The workload is split between two distinct entities:
-   * **Agent 1 (The Front-End Listener):** A strictly prompted Gemini agent that mirrors emotional pacing without giving advice. 
-   * **Agent 2 (The Back-End Analyst):** A silent background agent that analyzes the text to determine the core emotional vector and topic cluster. 
-3. **MCP Server & Agent Skills:** Agent 2 autonomously triggers the `SafeSpaceMCPServer` mapping to silently append trends to a local `journal.txt` file.
+## 📖 Executive Summary & Market Problem
 
-### Architecture Flowchart
+In high-pressure corporate and personal environments, individuals experiencing severe cognitive or emotional load frequently seek a secure outlet to process thoughts without receiving immediate, unprompted, or programmatic advice. Traditional AI chat agents rush to output mechanical solutions, which often increases user alienation. 
+
+**SafeSpace** solves this market gap by decoupling real-time, zero-advice empathetic validation from background analytical indexing. It provides a structured, multi-agent conversational environment designed to listen, mirror emotional pacing, and safely structure behavioral analytics out-of-band.
+
+---
+
+## 🏗️ System Architecture & Engineering Core
+
+The architecture utilizes an isolated, parallel Multi-Agent design pattern running over an enterprise-hardened pipeline. This guarantees low-latency user feedback loops while protecting data privacy before any third-party engine boundary.
+
 ```mermaid
 graph TD
-    A[User] -->|Types Message| B(Streamlit Web UI)
-    B --> C{🛡️ Security Privacy Scrub}
-    C -->|Clean Text| D[Agent 1: Front-End Listener]
-    C -->|Clean Text| E[Agent 2: Back-End Analyst]
-    D -->|Empathetic Reply| B
-    E -->|Emotion & Topic| F((MCP Server Tool))
-    F -->|Silently Logs Trend| G[(journal.txt)]
+    A[End-User Input] -->|HTTPS Requests| B(Streamlit Containerized UI)
+    B --> C{🛡️ In-Line Privacy Scrub Layer}
+    C -->|Sanitized String Context| D[Agent 1: Real-Time Listening Core]
+    C -->|Sanitized String Context| E[Agent 2: Async Analytics Engine]
+    D -->|Low-Latency Empathetic Reflection| B
+    E -->|Structured Behavioral Vectors| F((Model Context Protocol Server))
+    F -->|Secure Write Execution| G[(Cloud Analytics Pipeline / Firestore)]
