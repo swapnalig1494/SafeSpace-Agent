@@ -1,0 +1,5 @@
+Trend Logged -> Context: [family/finances] | Vector: [stressed/overwhelmed]
+Trend Logged -> Context: [self-worth] | Vector: [self-doubt/insecure]
+Trend Logged -> Context: [greeting] | Vector: [neutral]
+Trend Logged -> Context: [greeting] | Vector: [neutral]
+Trend Logged -> Context: [workplace conflict] | Vector: [anger]
